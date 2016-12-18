@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	xmlns:p="http://www.springframework.org/schema/p">
+
+
+<!-- We set fixed values to properties  -->
+	<bean id="commander1" class="org.cuatrovientos.larris.models.Commander">
+		<constructor-arg name="name" value="Adolf Hitler"/>
+		<constructor-arg name="race" value="¿Race?"/>
+	</bean>
+	<bean id="commander2" class="org.cuatrovientos.larris.models.Commander">
+		<constructor-arg name="name" value="Little chicken" />
+		<constructor-arg name="race" value="¿Race?"/>
+	</bean>
+	<bean id="commander3" class="org.cuatrovientos.larris.models.Commander">
+		<constructor-arg name="name" value="A bitch"/>
+		<constructor-arg name="race" value="¿Race?"/>
+	</bean>
+	<bean id="commander4" class="org.cuatrovientos.larris.models.Commander">
+		<constructor-arg name="name" value="Popitas"/>
+		<constructor-arg name="race" value="¿Race?"/>
+	</bean>		
+		
+	<bean id="ship1" class="org.cuatrovientos.larris.models.Ship"
+		p:name="Popitas" p:type="¿Race?" p:captain-ref="commander1"/>
+	<bean id="ship2" class="org.cuatrovientos.larris.models.Ship"
+		p:name="Popitas" p:type="¿Race?" p:captain-ref="commander2"/>
+	<bean id="ship3" class="org.cuatrovientos.larris.models.Ship"
+		p:name="Popitas" p:type="¿Race?" p:captain-ref="commander3"/>
+		
+	<bean id="fleet1" class="org.cuatrovientos.larris.models.Fleet" autowire="byName">
+		<property name="starships">
+			<set>
+				<ref bean="ship1" />
+				<ref bean="ship2" />
+				<ref bean="ship3" />
+			</set>
+		</property>
+	</bean>
+	
+</beans>
